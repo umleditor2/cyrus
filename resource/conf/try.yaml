@@ -1,0 +1,28 @@
+#button Names
+buttonNames:
+  - Class,class.png
+  - Enum, class.png
+  - Interface, class.png
+  - Primitive, class.png
+  - Generalization, inheritance.png
+  - Realiztion, interface-realization.png
+  - Association, association.png
+  - Aggregation, aggregation.png
+  - Composition, composition.png
+  - Marquee , class.png
+  - Connector ,note-connector.png 
+  - Note , note.png
+ #buttonIcons
+#buttonIcons:
+ # - class.png
+ # - class.png
+ # - class.png
+ # - class.png
+ # - inheritance.png
+ # - interface-realization.png
+ # - association.png
+ # - aggregation.png
+ # - composition.png
+ # - class.png
+ # - note-connector.png
+ # - note.png
