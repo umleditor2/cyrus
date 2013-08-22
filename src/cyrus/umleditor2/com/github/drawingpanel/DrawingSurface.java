@@ -8,12 +8,14 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import cyrus.umleditor2.com.github.classdiagram.ClassNode;
+import cyrus.umleditor2.com.github.common.Observer;
 import cyrus.umleditor2.com.github.drawingpanel.events.SurfaceObserver;
+
+
 
 import net.miginfocom.swing.MigLayout;
 
-public class DrawingSurface extends JPanel{
+public class DrawingSurface extends JPanel implements Observer{
 	
 	private static final long serialVersionUID = 3786209113916452273L;
 
@@ -22,7 +24,8 @@ public class DrawingSurface extends JPanel{
 	 */
 	Dimension preferredSize = new Dimension(2000,1700);
 	
-	public ClassNode node=null;
+	private String state;
+	
 	
 	public DrawingSurface()
 	{
@@ -40,9 +43,6 @@ public class DrawingSurface extends JPanel{
 		
 		drawGrid(g2);
 		
-		if(node!=null){
-			node.display(g2);
-		}
 	}
 	public void drawGrid(Graphics2D g2){
 		
@@ -78,5 +78,13 @@ public class DrawingSurface extends JPanel{
 		this.addMouseListener(observer);
 		this.addMouseMotionListener(observer);
 	
+	}
+	@Override
+	public void updateState(String state) {
+		
+		this.state = state;
+		
+		System.out.println("state updated now: "+state);
+		
 	}
 }

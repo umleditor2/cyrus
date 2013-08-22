@@ -7,8 +7,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import cyrus.umleditor2.com.github.classdiagram.ClassNode;
+//import cyrus.umleditor2.com.github.classdiagram.ClassNode;
 import cyrus.umleditor2.com.github.drawingpanel.DrawingSurface;
+
+
 
 
 
@@ -52,7 +54,7 @@ public class SurfaceObserver implements MouseListener, MouseMotionListener{
 		p.x = e.getX();
 		p.y = e.getY();
 		
-		source.node=new ClassNode(e.getX()-75, e.getY()-30);
+	//	source.node=new ClassNode(e.getX()-75, e.getY()-30);
 		update();
 	}
 

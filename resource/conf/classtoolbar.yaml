@@ -1,0 +1,44 @@
+#button Names
+#buttonNames:
+  class:
+    - Class
+    - class.png
+  enum:
+    - Enum
+    - class.png
+  interface:
+    - Interface
+    - class.png
+  primitive:
+    - Primitive
+    - class.png
+  generalization:
+    - Generalization
+    - inheritance.png
+  realization:
+    - Realization
+    - interface-realization.png
+  association: 
+    - Association
+    - association.png
+  aggregation: 
+    - Aggregation
+    - aggregation.png
+  composition: 
+    - Composition
+    - composition.png
+  marquee:
+    - Marquee
+    - class.png
+  connector: 
+    - Connector
+    - class.png 
+  note:
+    - Note
+    - note.png
+  xyz:
+    - xyz
+    - class.png
+
+  
+  
