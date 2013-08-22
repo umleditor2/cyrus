@@ -1,53 +1,56 @@
 package cyrus.umleditor2.com.github.drawingpanel;
 
-
-
-import java.awt.Color;
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
-import javax.swing.JToolBar;
-
-import cyrus.umleditor2.com.github.toolbars.ToolBarFactory;
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
 
 import net.miginfocom.swing.MigLayout;
+import cyrus.umleditor2.com.github.toolbarpanel.DrawingToolBar;
 
-public class DrawingPanel extends JPanel{
-	
+public class DrawingPanel extends JPanel {
+
 	/*
-	 * <p>DrawingPanel class contains commandWidget that is the toolbar 
-	 * for drawing option. DrawingSplitPane that contains drawingPanel
-	 * and detail.</p>
+	 * <p>DrawingPanel class contains commandWidget that is the toolbar for
+	 * drawing option. DrawingSplitPane that contains drawingPanel and
+	 * detail.</p>
 	 */
-	
+
 	private static final long serialVersionUID = 1643867011152689825L;
 
-	private JPanel commandWidget = new JPanel(new MigLayout());
+	private DrawingToolBar drawingToolBar;
 
-	private DrawingSplitPane splitPane = new DrawingSplitPane();
-	
-	
-	public DrawingPanel()
-	{
+	private DrawingSplitPane splitPane;
+
+	public DrawingPanel() {
 		this.setLayout(new MigLayout());
 		configCommandWidget();
 		configSplitPane();
+		linkCommand2Surface();
 	}
 
-	public void configCommandWidget(){
+	public void configCommandWidget() {
 		/*
 		 * <p>Sets toolbar</p>
 		 */
-		//ArrayList<JToolBar> list = new ClassToolBar().getToolBar();
-		ArrayList<JToolBar> list = ToolBarFactory.createToolBar(ToolBarFactory.CLASS_TOOLBAR).getToolBar();
-		commandWidget.setBackground(Color.darkGray);
-		commandWidget.add(list.get(0));
-		commandWidget.add(list.get(1));
-		commandWidget.add(list.get(2));
-		this.add(commandWidget,"w 100%, wrap");
+		this.drawingToolBar = new DrawingToolBar(DrawingToolBar.CLASS_TOOLBAR);
+
+		this.add(this.drawingToolBar,"w 100%, wrap");
 	}
-	public void configSplitPane()
-	{
-		this.add(splitPane,"w 100%,h 100%");
+
+	public void configSplitPane() {
+		this.splitPane = new DrawingSplitPane();
+		this.add(splitPane, "w 100%,h 100%");
+
 	}
+
+	public void linkCommand2Surface() {
+
+		JScrollPane scroll = (JScrollPane) this.splitPane.getTopComponent();
+
+		JViewport view = scroll.getViewport();
+
+		this.drawingToolBar.registerObserver((DrawingSurface) scroll
+				.getViewport().getView());
+	}
+
 }
